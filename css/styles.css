@@ -28,3 +28,58 @@ body {
     position: absolute;
 }
 
+/* default location for 3 bars */
+
+.menu-icon .bar:nth-child(1) {
+    transform: translateY(-8px);
+}
+
+.menu-icon .bar:nth-child(3) {
+    transform: translateY(8px);
+}
+
+/* transformed positions */
+
+.menu-icon.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.menu-icon.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+/* make this one hide */
+
+.menu-icon.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+nav {
+    width: 60%;
+    background-color: darkblue;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 10px rbg(0,0,0,0.3);
+    /* hide the menu offscreen to the left */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 100;
+}
+
+nav.is-open {
+    transform: translateX(0);
+}
+
+nav a {
+    color: #FFF;
+    display: block;
+    padding: 0.5rem 0;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+}
